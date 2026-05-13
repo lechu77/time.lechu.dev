@@ -652,6 +652,50 @@ body {
   background: var(--color-hour-current);
 }
 
+/* ── CLI section ─────────────────────────────────────────────── */
+.cli-section {
+  padding: var(--space-sm) var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.cli-details__summary {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  list-style: none;
+  user-select: none;
+}
+
+.cli-details__summary::before {
+  content: '▶ ';
+  color: var(--color-accent);
+}
+
+.cli-details[open] .cli-details__summary::before {
+  content: '▼ ';
+}
+
+.cli-details__body {
+  margin-top: var(--space-sm);
+}
+
+.cli-example {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--space-sm) var(--space-md);
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+.cli-example code {
+  color: var(--color-accent);
+}
+
 /* ── Footer ─────────────────────────────────────────────────── */
 .site-footer {
   padding: var(--space-sm) var(--space-lg);

@@ -19,7 +19,6 @@
 █░█░█▀▀░▀█▀░░░█▀█░█▀█░█▀█░▀█▀░█░█░█▀▀░█▀▄░░░▀█▀░▀▀█░░░▀█▀░█▀█░█▀█░█░░
 ░█░░█▀▀░░█░░░░█▀█░█░█░█░█░░█░░█▀█░█▀▀░█▀▄░░░░█░░▄▀░░░░░█░░█░█░█░█░█░░
 ░▀░░▀▀▀░░▀░░░░▀░▀░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀░▀░░░░▀░░▀▀▀░░░░▀░░▀▀▀░▀▀▀░▀▀▀
-
                                                              by Lechu</pre>
     </div>
     <div class="site-header__controls">
@@ -97,6 +96,23 @@
     </section>
 
   </main>
+
+  <section class="cli-section" aria-label="CLI usage">
+    <details class="cli-details">
+      <summary class="cli-details__summary">also works from the terminal — curl / wget</summary>
+      <div class="cli-details__body">
+        <pre class="cli-example"><code># your local time vs a city
+curl -L time.lechu.dev/tz/Madrid
+
+# diff between two zones
+curl -L time.lechu.dev/tz/New_York/Tokyo
+curl -L time.lechu.dev/tz/UTC+2/Berlin
+
+# works with wget too
+wget -qO- time.lechu.dev/tz/London</code></pre>
+      </div>
+    </details>
+  </section>
 
   <footer class="site-footer">
     <span aria-hidden="true">[ </span>

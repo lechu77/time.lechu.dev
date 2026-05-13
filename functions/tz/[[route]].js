@@ -67,14 +67,22 @@ const TIMEZONE_LIST = [
 
 function resolveZone(input) {
   const q = input.trim().toLowerCase();
+  const qSpaced = q.replace(/_/g, ' ');
 
   // Try direct IANA match first (e.g. "Europe/Madrid")
   const direct = TIMEZONE_LIST.find(e => e.tz.toLowerCase() === q);
   if (direct) return direct;
 
-  // Try city name match (case-insensitive)
-  const byCity = TIMEZONE_LIST.find(e => e.city.toLowerCase() === q);
+  // Try city name match (case-insensitive, also with underscores as spaces)
+  const byCity = TIMEZONE_LIST.find(e => {
+    const c = e.city.toLowerCase();
+    return c === q || c === qSpaced;
+  });
   if (byCity) return byCity;
+
+  // Try matching the last segment of the IANA tz (e.g. "New_York" → "America/New_York")
+  const byTzSuffix = TIMEZONE_LIST.find(e => e.tz.split('/').pop().toLowerCase() === q);
+  if (byTzSuffix) return byTzSuffix;
 
   // Try offset notation: UTC+2, GMT-3, +5, -11
   const offsetMatch = input.trim().toUpperCase().match(/^(?:UTC|GMT)?([+-])(\d{1,2})(?::(\d{2}))?$/);
