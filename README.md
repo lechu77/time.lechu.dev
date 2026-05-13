@@ -101,12 +101,12 @@ A Cloudflare Pages Function at `/tz/` provides timezone diff data without a brow
 
 ```bash
 # Your detected timezone vs one zone
-curl time.lechu.dev/tz/Madrid
+curl -L time.lechu.dev/tz/Madrid
 
 # Diff between two zones
-curl time.lechu.dev/tz/Madrid/Munich
-curl time.lechu.dev/tz/New_York/Tokyo
-curl time.lechu.dev/tz/UTC+2/Berlin
+curl -L time.lechu.dev/tz/Madrid/Munich
+curl -L time.lechu.dev/tz/New_York/Tokyo
+curl -L time.lechu.dev/tz/UTC+2/Berlin
 ```
 
 - `curl`/`wget`/`httpie` → plain text output
