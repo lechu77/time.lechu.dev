@@ -95,6 +95,27 @@ Custom domain `time.lechu.dev` via Cloudflare DNS CNAME → Pages project.
 - LocalStorage values validated against known-good IANA list before use
 - No external requests at runtime
 
+## curl / CLI API
+
+A Cloudflare Pages Function at `/tz/` provides timezone diff data without a browser.
+
+```bash
+# Your detected timezone vs one zone
+curl time.lechu.dev/tz/Madrid
+
+# Diff between two zones
+curl time.lechu.dev/tz/Madrid/Munich
+curl time.lechu.dev/tz/New_York/Tokyo
+curl time.lechu.dev/tz/UTC+2/Berlin
+```
+
+- `curl`/`wget`/`httpie` → plain text output
+- Browser → JSON
+- Your timezone is auto-detected from the Cloudflare request (`cf.timezone`)
+- Accepts city names, IANA IDs, or offset notation (`UTC+2`, `+5`, `-3`)
+
+Source: `functions/tz/[[route]].js`
+
 ## Status
 
 🟢 Core UI complete. Local clock widget added. GitHub repo live at [github.com/lechu77/time.lechu.dev](https://github.com/lechu77/time.lechu.dev).
