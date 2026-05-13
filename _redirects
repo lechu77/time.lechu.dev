@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# HTTP → HTTPS is enforced by Cloudflare at the edge — no rule needed here.
+# SPA fallback (not needed for this single-page app, but kept for reference):
+# /*  /index.html  200

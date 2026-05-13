@@ -1,0 +1,17 @@
+# Environment
+.env
+
+# Generated AI/project docs — not tracked in git
+CONTEXT.md
+MEMORY.md
+DECISIONS.md
+STATE.md
+TASKS.md
+AGENTS.md
+ARCHITECTURE.md
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/settings.json
