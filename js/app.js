@@ -34,6 +34,14 @@ const themeToggle   = document.getElementById('theme-toggle');
 const formatToggle  = document.getElementById('format-toggle');
 const hourBar       = document.getElementById('hour-bar');
 const crosshairTip  = document.getElementById('crosshair-tooltip');
+const localClockTz   = document.getElementById('local-clock-tz');
+const localClockTime = document.getElementById('local-clock-time');
+const localClockDate = document.getElementById('local-clock-date');
+
+/* ── Local timezone (detected once) ────────────────────────── */
+const LOCAL_TZ = (() => {
+  try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch { return 'UTC'; }
+})();
 
 /* ── Init ───────────────────────────────────────────────────── */
 function init() {
@@ -142,6 +150,30 @@ function tickAll() {
   }
 
   updateHourBarHighlight(currentHour);
+  updateLocalClock(now);
+}
+
+/* ── Local clock widget ─────────────────────────────────────── */
+function updateLocalClock(now) {
+  if (!localClockTime || !localClockDate) return;
+  try {
+    if (localClockTz && !localClockTz.textContent) {
+      localClockTz.textContent = LOCAL_TZ;
+    }
+    const timeFmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: LOCAL_TZ,
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: prefs.hourFormat === 12,
+    });
+    const dateFmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: LOCAL_TZ,
+      weekday: 'short', year: 'numeric', month: 'short', day: '2-digit',
+    });
+    localClockTime.textContent = timeFmt.format(now);
+    localClockDate.textContent = dateFmt.format(now).toUpperCase();
+  } catch (err) {
+    console.error('[app] Local clock error:', err);
+  }
 }
 
 /* ── Grid rendering ─────────────────────────────────────────── */

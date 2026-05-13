@@ -10,6 +10,7 @@
 - 12/24h format toggle, persisted to LocalStorage
 - Remove any column with the × button
 - **Crosshair hover** — hover any hour row to see the equivalent time across all zones
+- **Local clock widget** — top-right header shows your detected timezone, live time, and date
 - Selections persisted to LocalStorage and encoded in the URL hash (shareable links)
 - Default timezones: Madrid, Lisbon, Buenos Aires, Berlin, UTC, Paris
 
@@ -96,5 +97,5 @@ Custom domain `time.lechu.dev` via Cloudflare DNS CNAME → Pages project.
 
 ## Status
 
-🟢 Core UI complete. GitHub repo live at [github.com/lechu77/time.lechu.dev](https://github.com/lechu77/time.lechu.dev).
+🟢 Core UI complete. Local clock widget added. GitHub repo live at [github.com/lechu77/time.lechu.dev](https://github.com/lechu77/time.lechu.dev).
 Cloudflare Pages + DNS pending.

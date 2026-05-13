@@ -34,8 +34,8 @@ svg { display: block; }
   /* Text */
   --color-text-primary:   #e0ffe8;
   --color-text-secondary: #7aff9f;
-  --color-text-muted:     #3a6b4a;
-  --color-text-dim:       #1e3d28;
+  --color-text-muted:     #5a9a6a;
+  --color-text-dim:       #2e5c3a;
 
   /* Borders */
   --color-border:       #00ff9f33;
@@ -203,6 +203,39 @@ body {
   padding-top: var(--space-xs);
 }
 
+/* ── Local clock widget ─────────────────────────────────────── */
+.local-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  line-height: 1.2;
+}
+
+.local-clock__tz {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.local-clock__time {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-accent);
+  text-shadow: var(--color-accent-glow);
+  letter-spacing: 0.04em;
+}
+
+.local-clock__date {
+  font-size: 9px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+}
+
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
@@ -248,14 +281,14 @@ body {
 
 .btn--icon {
   padding: var(--space-xs);
-  width: 32px;
-  height: 32px;
+  width: 52px;
+  height: 52px;
   justify-content: center;
 }
 
 .btn--icon .icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
@@ -271,7 +304,7 @@ body {
 
 .format-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 0.05em;
 }
